@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Fendas do Tempo (Rifts of Time): physical melee combat in VR for Meta Quest, fighting your way through the great eras of history. Open playtest, in active development.">
+<title>Fendas do Tempo · Rifts of Time</title>
+<link rel="alternate" hreflang="pt-BR" href="https://devalexandre.github.io/fendas-do-tempo/">
+<link rel="alternate" hreflang="en" href="https://devalexandre.github.io/fendas-do-tempo/en.html">
+<link rel="alternate" hreflang="x-default" href="https://devalexandre.github.io/fendas-do-tempo/">
+<link rel="canonical" href="https://devalexandre.github.io/fendas-do-tempo/en.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fendas do Tempo">
+<meta property="og:title" content="Fendas do Tempo · Rifts of Time">
+<meta property="og:description" content="Physical melee combat in VR for Meta Quest, fighting your way through the eras of history. Open playtest, in active development.">
+<meta property="og:url" content="https://devalexandre.github.io/fendas-do-tempo/en.html">
+<meta property="og:image" content="https://devalexandre.github.io/fendas-do-tempo/img/hero-persia.webp">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: uma "fenda" vertical de luz atravessa a página; seções alternam entre a brasa persa e o azul da nave do tempo. */
+:root {
+  color-scheme: dark;
+  --night: #0c0e1c;        /* fundo: noite azulada */
+  --night-2: #141830;      /* superfícies */
+  --ink: #e9e6f2;          /* texto */
+  --mute: #9a9cb8;         /* texto secundário */
+  --ember: #f08a3e;        /* fogo da Pérsia */
+  --rift: #74c8ff;         /* azul da fenda temporal */
+  --line: #262b4d;
+  --display: "Marcellus", "Trajan Pro", Georgia, serif;
+  --body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --step--1: clamp(0.82rem, 0.8rem + 0.1vw, 0.88rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.1rem);
+  --step-1: clamp(1.25rem, 1.1rem + 0.6vw, 1.55rem);
+  --step-2: clamp(1.7rem, 1.3rem + 1.6vw, 2.5rem);
+  --step-4: clamp(3rem, 1.6rem + 7vw, 7.5rem);
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--night);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+}
+a { color: var(--rift); }
+:focus-visible { outline: 2px solid var(--rift); outline-offset: 3px; }
+.wrap {
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { font-family: var(--display); font-weight: 400; text-wrap: balance; margin: 0; }
+h2 { font-size: var(--step-2); line-height: 1.15; }
+h3 { font-size: var(--step-1); }
+p { margin: 0; }
+.eyebrow {
+  font-family: var(--mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rift);
+}
+.lede { color: var(--mute); max-width: 62ch; }
+
+/* --- abertura ----------------------------------------------------------------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-bottom: 1px solid var(--line);
+}
+.hero-img {
+  position: absolute; inset: 0; z-index: -2;
+  background: url("img/hero-persia.webp") center 40% / cover no-repeat;
+}
+.hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(12,14,28,0.35) 0%, rgba(12,14,28,0.55) 55%, var(--night) 100%),
+    linear-gradient(90deg, rgba(12,14,28,0.85) 0%, rgba(12,14,28,0.15) 70%);
+}
+.hero .wrap { padding-block: clamp(72px, 12vw, 150px) clamp(48px, 8vw, 96px); display: grid; gap: 22px; }
+.status {
+  display: inline-flex; align-items: center; gap: 10px; width: fit-content;
+  font-family: var(--mono); font-size: var(--step--1); letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 6px 12px; border: 1px solid rgba(240,138,62,0.55); border-radius: 999px; color: var(--ember);
+  background: rgba(12,14,28,0.55);
+}
+.status i { width: 8px; height: 8px; border-radius: 50%; background: var(--ember); box-shadow: 0 0 10px var(--ember); }
+.title {
+  font-size: var(--step-4); line-height: 0.92; letter-spacing: 0.01em;
+  display: grid; gap: 0.08em;
+}
+.title .rift-word { display: inline-flex; align-items: stretch; gap: 0.12em; }
+/* a fenda: um corte de luz azul entre as palavras */
+.title .crack {
+  width: 0.06em; border-radius: 2px;
+  background: linear-gradient(180deg, transparent, var(--rift) 20%, #fff 50%, var(--rift) 80%, transparent);
+  box-shadow: 0 0 18px var(--rift), 0 0 42px rgba(116,200,255,0.6);
+  animation: pulse 3.2s ease-in-out infinite;
+}
+.title .tempo { color: var(--ember); text-shadow: 0 0 30px rgba(240,138,62,0.35); }
+@keyframes pulse { 50% { opacity: 0.55; box-shadow: 0 0 8px var(--rift), 0 0 20px rgba(116,200,255,0.4); } }
+.tagline { font-size: var(--step-1); max-width: 34ch; color: var(--ink); }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 20px; font-family: var(--mono); font-size: var(--step--1); color: var(--mute); }
+.facts b { color: var(--ink); font-weight: 500; }
+
+/* --- seções -------------------------------------------------------------------- */
+section { padding-block: clamp(56px, 8vw, 104px); }
+section + section { border-top: 1px solid var(--line); }
+.head { display: grid; gap: 12px; margin-bottom: clamp(28px, 4vw, 44px); }
+
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.feature { background: var(--night); padding: 26px 24px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.feature .tag { font-family: var(--mono); font-size: var(--step--1); color: var(--ember); letter-spacing: 0.06em; }
+.feature p { color: var(--mute); }
+.feature code { font-family: var(--mono); color: var(--rift); font-size: 0.92em; }
+
+/* linha do tempo das eras */
+.eras { display: grid; gap: 28px; }
+.era {
+  display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(20px, 3vw, 40px);
+  align-items: center;
+}
+.era:nth-child(even) .era-img { order: 2; }
+.era-img { aspect-ratio: 16 / 9; max-width: 100%; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; background: var(--night-2); }
+.era-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.era-text { display: grid; gap: 10px; min-width: 0; }
+.era-date { font-family: var(--mono); font-size: var(--step--1); letter-spacing: 0.1em; color: var(--rift); text-transform: uppercase; }
+.era-text p { color: var(--mute); }
+.boss { font-family: var(--mono); font-size: var(--step--1); color: var(--ink); }
+.boss span { color: var(--ember); }
+.era.next .era-img { display: grid; place-items: center; background:
+  radial-gradient(circle at 50% 50%, rgba(116,200,255,0.18), transparent 60%), var(--night-2); }
+.era.next .era-img span { font-family: var(--display); font-size: var(--step-2); color: var(--rift); }
+
+/* elenco de inimigos */
+.cast { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.foe {
+  display: grid; justify-items: center; gap: 10px; padding: 22px 12px 18px;
+  background: radial-gradient(ellipse at 50% 80%, rgba(240,138,62,0.16), transparent 65%), var(--night-2);
+  border: 1px solid var(--line); border-radius: 4px; min-width: 0;
+}
+.foe img { height: clamp(150px, 24vw, 240px); width: auto; max-width: 100%; object-fit: contain; filter: drop-shadow(0 10px 18px rgba(0,0,0,0.6)); }
+.foe h3 { font-size: var(--step-1); }
+.foe p { font-family: var(--mono); font-size: var(--step--1); color: var(--mute); text-align: center; }
+
+/* nave */
+.ship { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+.ship figure { margin: 0; display: grid; gap: 8px; min-width: 0; }
+.ship img { width: 100%; aspect-ratio: 16 / 9; max-width: 100%; object-fit: cover; border: 1px solid rgba(116,200,255,0.35); border-radius: 4px; display: block; }
+.ship figcaption { font-family: var(--mono); font-size: var(--step--1); color: var(--mute); }
+.ship-copy { display: grid; gap: 14px; margin-top: 28px; max-width: 70ch; color: var(--mute); }
+
+/* andamento */
+.progress { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 28px; }
+.col h3 { font-family: var(--mono); font-size: var(--step--1); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; }
+.col.done h3 { color: #7fd6a0; }
+.col.doing h3 { color: var(--ember); }
+.col.next h3 { color: var(--rift); }
+.col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.col li { padding-left: 18px; position: relative; color: var(--ink); }
+.col li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 8px; height: 8px; border-radius: 2px; background: currentColor; opacity: 0.5; }
+.col.done li::before { background: #7fd6a0; opacity: 1; }
+.col.doing li::before { background: var(--ember); opacity: 1; }
+.col.next li::before { background: transparent; border: 1px solid var(--rift); opacity: 1; }
+
+.cta { text-align: left; display: grid; gap: 16px; }
+.download {
+  display: inline-block; width: fit-content; padding: 14px 22px; border-radius: 4px;
+  background: var(--ember); color: #1a0f05; font-weight: 600; text-decoration: none;
+  box-shadow: 0 0 24px rgba(240,138,62,0.35);
+}
+.download:hover { filter: brightness(1.08); }
+.steps { margin: 0; padding-left: 1.3em; display: grid; gap: 6px; max-width: 70ch; color: var(--ink); }
+.steps code { font-family: var(--mono); color: var(--rift); font-size: 0.92em; }
+.note { color: var(--mute); font-size: var(--step--1); max-width: 70ch; }
+.cta h2 { max-width: 20ch; }
+footer { border-top: 1px solid var(--line); padding-block: 28px; color: var(--mute); font-size: var(--step--1); }
+footer .wrap { display: grid; gap: 6px; }
+
+/* seletor de idioma */
+.lang {
+  position: absolute; z-index: 2;
+  top: max(14px, env(safe-area-inset-top, 0px));
+  right: max(16px, env(safe-area-inset-right, 0px));
+  display: flex; align-items: center; gap: 2px;
+  font-family: var(--mono); font-size: var(--step--1); letter-spacing: 0.08em;
+  padding: 3px 6px; border: 1px solid var(--line); border-radius: 999px;
+  background: rgba(12,14,28,0.7);
+}
+.lang a { color: var(--mute); text-decoration: none; padding: 4px 8px; border-radius: 999px; }
+.lang a:hover { color: var(--ink); }
+.lang a[aria-current="page"] { color: #1a0f05; background: var(--ember); font-weight: 500; }
+.lang span { color: var(--mute); opacity: 0.6; }
+.aka { font-family: var(--mono); font-size: var(--step--1); letter-spacing: 0.24em; text-transform: uppercase; color: var(--rift); margin-top: -8px; }
+
+@media (max-width: 720px) {
+  .era { grid-template-columns: 1fr; }
+  .era:nth-child(even) .era-img { order: 0; }
+  .ship { grid-template-columns: 1fr; }
+  .cast { grid-template-columns: 1fr; }
+  .foe img { height: 200px; }
+}
+@media (prefers-reduced-motion: reduce) { .title .crack { animation: none; } }
+</style>
+<style>body{margin:0}</style>
+</head>
+<body>
+
+
+<header class="hero">
+  <nav class="lang" aria-label="Idioma / Language"><a href="index.html" hreflang="pt-BR" lang="pt-BR" data-lang="pt" title="Português">PT</a><span aria-hidden="true">·</span><a href="en.html" hreflang="en" lang="en" data-lang="en" aria-current="page" title="English">EN</a></nav>
+  <div class="hero-img" role="img" aria-label="Courtyard of a Persian fortress at dusk, with fire altars and the smoke of war"></div>
+  <div class="wrap">
+    <span class="status"><i aria-hidden="true"></i>In development · Meta Quest</span>
+    <h1 class="title">
+      <span>Fendas</span>
+      <span class="rift-word"><span>do</span><span class="crack" aria-hidden="true"></span><span class="tempo">Tempo</span></span>
+    </h1>
+    <p class="aka" lang="en">Rifts of Time</p>
+    <p class="tagline">Physical melee combat in virtual reality, carving a path through the eras of history.</p>
+    <div class="facts">
+      <span><b>Platform</b> Meta Quest 2 &amp; 3</span>
+      <span><b>Co-op</b> up to 4 players</span>
+      <span><b>Engine</b> Godot 4 + OpenXR</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Playable right now</span>
+        <h2>Every hit comes from your arm.</h2>
+        <p class="lede">No attack button. Your weapon follows your hand, and the damage comes from how fast and how well you swing.</p>
+      </div>
+      <div class="features">
+        <article class="feature">
+          <span class="tag">physical combat</span>
+          <h3>Swing hard, hit hard</h3>
+          <p>Blade speed sets the damage. Blades cut, axes and clubs crush, and the spear pierces when you thrust along the shaft.</p>
+        </article>
+        <article class="feature">
+          <span class="tag">defense</span>
+          <h3>Parry and block</h3>
+          <p>Shield strapped to your forearm, parries with your sword, and enemy posture that cracks when you hold a solid guard.</p>
+        </article>
+        <article class="feature">
+          <span class="tag">arsenal</span>
+          <h3>Sword, axe, spear, bow</h3>
+          <p>Round shield, a bow with a quiver on your back, laser pistols for the eras of the future. Anything goes in either hand and stows in a sheath or on your back.</p>
+        </article>
+        <article class="feature">
+          <span class="tag">spoken magic</span>
+          <h3>Say the spell out loud</h3>
+          <p>Grip your amulet or grimoire and speak. 10 spells from the 1st to the 5th circle, from <code>heal</code> and <code>fireball</code> all the way to <code>meteor</code> and <code>time stop</code>. The grimoire shows every spell and exactly what to say.</p>
+        </article>
+        <article class="feature">
+          <span class="tag">rooms &amp; portals</span>
+          <h3>Clear the room, open the portal</h3>
+          <p>Every dungeon is a chain of rooms packed with enemies that fan out around you. Take them all down and the portal appears; the boss waits in the final room.</p>
+        </article>
+        <article class="feature">
+          <span class="tag">characters</span>
+          <h3>Warrior, Mage or Hunter</h3>
+          <p>Each class starts with different attributes. Every 3 levels you earn an attribute point, and the mage learns or empowers a spell every 2 levels.</p>
+        </article>
+        <article class="feature">
+          <span class="tag">co-op</span>
+          <h3>Four friends, one fight</h3>
+          <p>Up to 4 players take on the same enemies over any network, with built-in voice chat. Attacks land in sync for everyone, so every parry and block counts.</p>
+        </article>
+        <article class="feature">
+          <span class="tag">inventory</span>
+          <h3>Potions on your belt, weapons on Y</h3>
+          <p>Reach for your belt, grab a potion and raise it to your mouth to drink. The Y button opens your inventory: stow one weapon and draw another mid-fight. Back in your cabin, a chest holds the rest.</p>
+        </article>
+        <article class="feature">
+          <span class="tag">first boss</span>
+          <h3>Rostam, hero of Persia</h3>
+          <p>Three phases: the mace that splits the ground, the lasso and Rakhsh the sand horse, then a rain of arrows. He talks to you, and his trophy ends up on your cabin shelf.</p>
+        </article>
+        <article class="feature">
+          <span class="tag">appearance</span>
+          <h3>Your face in the mirror</h3>
+          <p>Your cabin has a mirror: pick body, skin tone, hair, beard and hair color. In co-op your friends see your whole body, weapons stowed right on you.</p>
+        </article>
+        <article class="feature">
+          <span class="tag">co-op</span>
+          <h3>No one gets left behind</h3>
+          <p>Down? You have 30 seconds. A friend lays both hands on you or casts Heal and you are back in the fight. Playing solo, the Sand of Chronos picks you up once per room.</p>
+        </article>
+        <article class="feature">
+          <span class="tag">weapons by era</span>
+          <h3>Shamshir, gladius, rapier</h3>
+          <p>Each era hides its own weapons in golden chests: Persian shamshir and tabarzin, Roman gladius and scutum, mace, war hammer, rapier and flintlock pistol.</p>
+        </article>
+        <article class="feature">
+          <span class="tag">grimoire</span>
+          <h3>Quick guide on X</h3>
+          <p>Press X and the grimoire opens in front of you: one chapter per circle, every spell command in big letters. Heal and Shield go to whichever friend you aim at.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Version 0.8.0</span>
+        <h2>Weapons of every era, and the grimoire.</h2>
+        <p class="lede">New weapons stored in your cabin chest, new models for the entire arsenal, and the spell guide on the X button.</p>
+      </div>
+      <div class="ship">
+        <figure>
+          <img src="img/v080-arsenal.webp" alt="The new arsenal in hand: bone axe, gladius, mace and sword" loading="lazy">
+          <figcaption>The new arsenal: bone axe, gladius, mace and Viking sword.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/v080-grimorio.webp" alt="The open grimoire showing Fireball and Frost" loading="lazy">
+          <figcaption>The quick guide: one page per circle, every spell with the words to speak.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/v080-bau.webp" alt="The cabin chest open, full of shields and weapons" loading="lazy">
+          <figcaption>Weapons you loot from dungeon chests are kept in your cabin chest.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Versions 0.7.0 and 0.7.1</span>
+        <h2>Rostam, the Forgotten Knight and the CRONOS ship.</h2>
+        <p class="lede">Rostam now wears bronze armor and the horned helm of the White Demon. Every boss has its own theme, and a black-armored knight guards the Dungeon crypt.</p>
+      </div>
+      <div class="ship">
+        <figure>
+          <img src="img/v07-rostam.webp" alt="Rostam, in bronze armor and a horned helm, raises his mace" loading="lazy">
+          <figcaption>Rostam raises his gorz in the dueling courtyard. Parry it or get out of the way.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/v07-inventario.webp" alt="Inventory open in front of the player, with sword, spear and potions" loading="lazy">
+          <figcaption>The Y-button inventory, with weapons and potions. Below it, your belt pouch.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/v07-cronos.webp" alt="The CRONOS ship crossing the map of the eras" loading="lazy">
+          <figcaption>CRONOS, the Time Ship, arrives in the opening scene.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/v07-cavaleiro-esquecido.webp" alt="The Forgotten Knight in black armor and a red-cross cape" loading="lazy">
+          <figcaption>The Forgotten Knight guards the Dungeon crypt.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/v07-espelho.webp" alt="Cabin mirror with the appearance panel beside it" loading="lazy">
+          <figcaption>The cabin mirror: change skin and hair and see it instantly.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/v07-corpo-inteiro.webp" alt="A full-body player holding a sword, bow slung on her back" loading="lazy">
+          <figcaption>In co-op, every friend shows up full-body, looking exactly how they chose.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Gallery</span>
+        <h2>The courtyard duel.</h2>
+        <p class="lede">Rostam in three phases: the gorz, the lasso and Rakhsh, and finally the rain of arrows with rings of sand.</p>
+      </div>
+      <div class="ship">
+        <figure>
+          <img src="img/duelo-rostam.webp" alt="Rostam up close, in his horned helm" loading="lazy">
+          <figcaption>"No one gets past Rostam while the boy still breathes."</figcaption>
+        </figure>
+        <figure>
+          <img src="img/duelo-laco.webp" alt="Rostam hurls the sand lasso" loading="lazy">
+          <figcaption>Phase 2: the lasso drags you in. Cut the rope with your blade or cast Push.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/duelo-rakhsh.webp" alt="Rakhsh, the sand horse, charging across the warning strip" loading="lazy">
+          <figcaption>Rakhsh charges across the courtyard. Get off the sand strip.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/duelo-flechas.webp" alt="A ring of sand and arrow markers on the ground" loading="lazy">
+          <figcaption>Phase 3: arrows hit the markers and the sand ring rolls out. Jump it or hold up your shield.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Time map</span>
+        <h2>Four dungeons, four bosses.</h2>
+        <p class="lede">The game launches with four dungeons, each set in its own era and each telling part of the story. Fight your way through room by room; the era's boss waits in the last one.</p>
+      </div>
+      <div class="eras">
+        <article class="era">
+          <div class="era-img"><img src="img/era-persia.webp" alt="Persian courtyard room with soldiers advancing in the light of the fire altars"></div>
+          <div class="era-text">
+            <span class="era-date">Persian Empire · c. 500 BC</span>
+            <h3>Fortress Courtyard</h3>
+            <p>An empire at war as night falls. Smoke on the horizon, braziers ablaze and soldiers guarding the palace gate.</p>
+            <p class="boss">Boss: <span>Rostam</span>, hero of the Shahnameh</p>
+          </div>
+        </article>
+        <article class="era">
+          <div class="era-img"><img src="img/era-masmorra.webp" alt="Dungeon hall cleared, enemies down and the golden portal open"></div>
+          <div class="era-text">
+            <span class="era-date">Middle Ages</span>
+            <h3>Forgotten Dungeon</h3>
+            <p>A stone hall deep underground, lit only by torches. A barred gate, pillars, chests and the echo of footsteps of whoever comes to fight.</p>
+            <p class="boss">Boss: <span>still a secret</span></p>
+          </div>
+        </article>
+        <article class="era next">
+          <div class="era-img"><span>?</span></div>
+          <div class="era-text">
+            <span class="era-date">Dungeons 3 and 4</span>
+            <h3>Two rifts still sealed</h3>
+            <p>The other two launch dungeons are on the drawing board, each with its own era, its own chapter of the story and a fully voiced boss waiting in the final room.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Who you will face</span>
+        <h2>Warriors from across the ages.</h2>
+        <p class="lede">Every enemy telegraphs its strike, keeps its guard up and falls when its posture breaks.</p>
+      </div>
+      <div class="cast">
+        <figure class="foe">
+          <img src="img/foe-centuriao.webp" alt="Roman centurion on guard with a sword">
+          <h3>Centurion</h3>
+          <p>sword · fast strikes</p>
+        </figure>
+        <figure class="foe">
+          <img src="img/foe-viking.webp" alt="Viking in a horned helm on guard with an axe">
+          <h3>Viking</h3>
+          <p>axe · heavy chops</p>
+        </figure>
+        <figure class="foe">
+          <img src="img/foe-cavaleiro.webp" alt="Knight in dark armor and a crown, on guard with a sword">
+          <h3>Knight</h3>
+          <p>sword · heavy armor</p>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Co-op</span>
+        <h2>The Time Ship.</h2>
+        <p class="lede">This is where your party meets up when you jump in.</p>
+      </div>
+      <div class="ship">
+        <figure>
+          <img src="img/nave-bolas.webp" alt="Ship cabin with four crystal balls; the selected Persia ball shows the courtyard spinning inside">
+          <figcaption>The crystal balls: each era spins inside one. The host picks and hits GO.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/nave-cabine.webp" alt="A player cabin with a weapon rack, bed and a lit trophy shelf">
+          <figcaption>Every player gets a personal cabin: automatic door, weapons and a trophy shelf.</figcaption>
+        </figure>
+      </div>
+      <div class="ship-copy">
+        <p>Whoever creates the room becomes the host and runs the match. Rooms can be public or private, with a six-letter code to bring your friends in. Four players fit: the host plus three.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">The story</span>
+        <h2>Chronos chose you.</h2>
+        <p class="lede">The thread of history has snapped, tearing rifts into its defining moments. Chronos, guardian of time, cannot enter them, so he chose four friends to cross the eras and seal every rift. The opening is narrated in English or Portuguese the first time you play.</p>
+      </div>
+      <div class="ship">
+        <figure>
+          <img src="img/historia-nave.webp" alt="The Time Ship in flight, trailing blue light, with the crystal balls of the eras around it">
+          <figcaption>The Time Ship arrives to carry off the chosen ones.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Ship's log</span>
+        <h2>Where we are.</h2>
+      </div>
+      <div class="progress">
+        <div class="col done">
+          <h3>Done</h3>
+          <ul>
+            <li>Physical combat with sword, axe, spear and shield</li>
+            <li>Bow with quiver, and laser pistols</li>
+            <li>10 voice-cast spells, 1st to 5th circle, with grimoire</li>
+            <li>Online rooms with relay and voice chat</li>
+            <li>Ship quarters with weapon racks</li>
+            <li>Group combat: everyone against the same enemy</li>
+            <li>Characters with classes, levels, attribute and spell points</li>
+            <li>Voice magic running right on the Quest</li>
+            <li>Humanoid enemies with 89 animations</li>
+            <li>Persian courtyard and dungeon, with multiple rooms and portals</li>
+            <li>Opening narrated in English and Portuguese</li>
+            <li>Cabins with automatic doors and trophy shelves</li>
+            <li>Time Ship with rooms for up to 4</li>
+          </ul>
+        </div>
+        <div class="col doing">
+          <h3>In progress</h3>
+          <ul>
+            <li>Unique final-room bosses with their own voice lines</li>
+            <li>Designing each era (Persia, Wallachia, Rome, Milan)</li>
+          </ul>
+        </div>
+        <div class="col next">
+          <h3>Up next</h3>
+          <ul>
+            <li>Rostam, the first boss</li>
+            <li>Boss trophies on your cabin shelf</li>
+            <li>Character appearance in your ship quarters</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap cta">
+      <span class="eyebrow">Open playtest · version 0.8.0</span>
+      <h2>Play the test build on your Quest.</h2>
+      <p class="lede">The game is still in development and changes every week. Playtest with us and help decide how heavy the weapons feel, how fast the enemies fight and which eras come next.</p>
+      <a class="download" href="https://github.com/devalexandre/fendas-do-tempo/releases/latest/download/fendas_do_tempo.apk">Download the APK for Quest · 152 MB</a>
+      <ol class="steps">
+        <li>Turn on <b>developer mode</b> for your Quest in the Meta Horizon app on your phone.</li>
+        <li>Install the APK with <b>SideQuest</b> (or <code>adb install fendas_do_tempo.apk</code>) while the Quest is plugged into your computer.</li>
+        <li>On the Quest, open your library, filter by <b>Unknown Sources</b> and launch <b>Fendas do Tempo</b>.</li>
+      </ol>
+      <p class="note">You only install the APK once: when a new version ships, the game downloads the update by itself on launch. Voice magic works on the Quest (speech recognition over the internet) and multiplayer works on any network. Coming soon to the <b>SideQuest</b> store.</p>
+      <div class="features" style="margin-top:28px">
+        <article class="feature">
+          <span class="tag">comfort</span>
+          <h3>Intense</h3>
+          <p>Fantasy combat against historical warriors, monsters and machines (no blood). Expect magic flashes and lightning, smooth thumbstick locomotion, jumps and falls. Play standing. Not recommended if you get motion sick in VR.</p>
+        </article>
+        <article class="feature">
+          <span class="tag">known issues</span>
+          <h3>Early access</h3>
+          <p>Some enemies look too dark in low-light rooms, and some bosses still use placeholder models. Spoken magic needs a quiet room and clearly spoken English words. Quest 2 performance is still being tuned. Screenshots on this site come from the PC development build.</p>
+        </article>
+        <article class="feature">
+          <span class="tag">privacy</span>
+          <h3>No ads, no tracking</h3>
+          <p>The microphone is used only for spoken spells and in-room voice chat; your voice is never recorded. Read the <a href="privacy.html">privacy policy</a> and the <a href="credits.html">credits</a>, or <a href="https://github.com/devalexandre/fendas-do-tempo/issues">report a problem</a>.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Fendas do Tempo · an independent game in development.</span>
+    <span>Models by many authors under CC0 and CC-BY licenses — see the <a href="credits.html">full credits</a>. Music, voices and sound effects generated with ElevenLabs.</span>
+    <span><a href="privacy.html">Privacy Policy</a> · <a href="https://github.com/devalexandre/fendas-do-tempo/issues">Report a problem</a></span>
+  </div>
+</footer>
+<script>
+document.querySelectorAll(".lang a[data-lang]").forEach(function (a) {
+  a.addEventListener("click", function () { try { localStorage.setItem("fdt-lang", a.getAttribute("data-lang")); } catch (e) {} });
+});
+</script>
+
+</body>
+</html>

@@ -9,7 +9,7 @@ h1,h2,h3{font-weight:500;line-height:1.25} h1{color:var(--ember)} a{color:var(--
 table{width:100%;border-collapse:collapse;font-size:14px;display:block;overflow-x:auto}
 th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
 th{background:#141830} code{color:var(--rift)} .back{display:inline-block;margin-bottom:16px}
-</style></head><body><main><a class="back" href="./">← Fendas do Tempo</a>
+</style></head><body><main><a class="back" href="index.html">← Fendas do Tempo</a>
 <h1>Privacy Policy</h1>
 <p><em>Fendas do Tempo (com.devalexandre.fendasdotempo) — last updated 2026-11-08.</em></p>
 <p>Fendas do Tempo is a free VR game in early access, made by an independent developer. This page explains what the game collects and why. Short version: no ads, no analytics, no selling of data, and voice is never recorded.</p>
@@ -33,4 +33,15 @@ th{background:#141830} code{color:var(--rift)} .back{display:inline-block;margin
 <ul><li>You can deny the microphone permission: spoken spells and voice chat stop working, everything else still works.</li>
 <li>To delete your player record, open an issue or contact us (below) with your character name; we delete it.</li></ul>
 <h2>Contact</h2>
-<p>Report problems or privacy requests at <a href="https://github.com/devalexandre/fendas-do-tempo/issues">github.com/devalexandre/fendas-do-tempo/issues</a>.</p></main></body></html>
+<p>Report problems or privacy requests at <a href="https://github.com/devalexandre/fendas-do-tempo/issues">github.com/devalexandre/fendas-do-tempo/issues</a>.</p></main>
+<script>
+/* back link follows the visitor's language: stored choice first, then the page they came from */
+(function () {
+  var a = document.querySelector("a.back"), lang = null;
+  try { lang = localStorage.getItem("fdt-lang"); } catch (e) {}
+  if (!lang) { try { var r = new URL(document.referrer); if (r.origin === location.origin) lang = /\/en\.html$/.test(r.pathname) ? "en" : (/\/(index\.html)?$/.test(r.pathname) ? "pt" : null); } catch (e) {} }
+  if (!lang) lang = /^pt/i.test((navigator.languages && navigator.languages[0]) || navigator.language || "") ? "pt" : "en";
+  if (a && lang === "en") a.setAttribute("href", "en.html");
+})();
+</script>
+</body></html>
