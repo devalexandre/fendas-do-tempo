@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Credits — Fendas do Tempo</title>
+<style>
+:root{--night:#0c0e1c;--ink:#ece6da;--mute:#a9b0c8;--ember:#f08a3e;--rift:#74c8ff;--line:#2a3050}
+body{margin:0;background:var(--night);color:var(--ink);font:16px/1.6 system-ui,sans-serif}
+main{max-width:900px;margin:0 auto;padding:32px 16px 64px}
+h1,h2,h3{font-weight:500;line-height:1.25} h1{color:var(--ember)} a{color:var(--rift)}
+table{width:100%;border-collapse:collapse;font-size:14px;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{background:#141830} code{color:var(--rift)} .back{display:inline-block;margin-bottom:16px}
+</style></head><body><main><a class="back" href="./">← Fendas do Tempo</a>
+<h1>Créditos e licenças</h1>
+<table>
+<thead>
+<tr>
+<th>Asset</th>
+<th>Origem</th>
+<th>Licença</th>
+<th>Uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Orc (inimigo, animado)</td>
+<td>https://poly.pizza/m/5vO2YJsPEf — Quaternius</td>
+<td>CC0 1.0</td>
+<td><code>assets/models/enemies/orc.glb</code> (escala ajustada)</td>
+</tr>
+<tr>
+<td>Adventurer (humanoide base)</td>
+<td>https://poly.pizza/m/5EGWBMpuXq — Quaternius</td>
+<td>CC0 1.0</td>
+<td><code>assets/models/enemies/humanoid/adventurer.glb</code></td>
+</tr>
+<tr>
+<td>Hooded Adventurer</td>
+<td>https://poly.pizza/m/y9KWOVG21R — Quaternius</td>
+<td>CC0 1.0</td>
+<td><code>assets/models/enemies/humanoid/hooded.glb</code> (a espada dele define o encaixe das armas na mão)</td>
+</tr>
+<tr>
+<td>King</td>
+<td>https://poly.pizza/m/I1gTjmuK2m — Quaternius</td>
+<td>CC0 1.0</td>
+<td><code>assets/models/enemies/humanoid/king.glb</code></td>
+</tr>
+<tr>
+<td>⚔️ Viking</td>
+<td>"⚔️ Viking" by blaeksprut, https://poly.pizza/m/6UxTboeQ2G</td>
+<td>CC-BY 3.0</td>
+<td><code>assets/models/enemies/humanoid/viking.glb</code> (preso ao esqueleto do Adventurer, braços ajustados)</td>
+</tr>
+<tr>
+<td>Roman Centurion</td>
+<td>"Roman Centurion" by blaeksprut, https://poly.pizza/m/g2ckFsGszB</td>
+<td>CC-BY 3.0</td>
+<td><code>assets/models/enemies/humanoid/centuriao.glb</code> (braços levantados para pose T, preso ao esqueleto do Adventurer)</td>
+</tr>
+<tr>
+<td>⛨ The Forgotten Knight ⛨</td>
+<td>"⛨ The Forgotten Knight ⛨" by dark_igorek, https://skfb.ly/p9ZW7</td>
+<td><strong>CC-BY 4.0</strong></td>
+<td><code>assets/models/enemies/humanoid/forgotten_knight.glb</code> e a espada <code>assets/models/weapons/espada_esquecida.glb</code> (inimigo "Cavaleiro Esquecido"). Modificado: rosas e luzes removidas; malhas decimadas (~96k → ~11,6k triângulos; espada 1,8k → 380); esqueleto refeito no da Universal Animation Library 2 (pesos do autor remapeados, capa presa às coxas; <code>tools/retarget/forgotten_knight.py</code>); texturas reduzidas para 1024/512 px em JPEG (capa em PNG com alfa) e metal/rugosidade empacotados</td>
+</tr>
+<tr>
+<td>Giant Mech 🤖</td>
+<td>"Giant Mech 🤖" by Chris Ross, https://poly.pizza/m/5l-n7PyvqOu</td>
+<td>CC-BY 3.0</td>
+<td><code>assets/models/enemies/bosses/giant_mech.glb</code>; as asas e os propulsores (parte de cima, recortada e escalada) vão nas costas do Colosso de Leonardo, chefe de Milão: <code>assets/models/boss/colosso/colosso.glb</code> (o resto do Colosso é modelado em <code>tools/milao/make_colosso.py</code>)</td>
+</tr>
+<tr>
+<td>Robot Enemy Flying</td>
+<td>https://poly.pizza/m/lF3jeRJwiH — Quaternius</td>
+<td>CC0 1.0</td>
+<td>drone da fenda de Milão: <code>assets/models/enemies/milao/drone.glb</code></td>
+</tr>
+<tr>
+<td>Spider</td>
+<td>https://poly.pizza/m/yRYJiAJyiM — Quaternius</td>
+<td>CC0 1.0</td>
+<td>criatura da fenda de Milão (recolorida de ferro com veios azuis): <code>assets/models/enemies/milao/aranha_fenda.glb</code></td>
+</tr>
+<tr>
+<td>King (Leonardo)</td>
+<td>Quaternius — https://poly.pizza/m/I1gTjmuK2m</td>
+<td>CC0 1.0</td>
+<td>corpo de Leonardo da Vinci (Milão): <code>assets/models/boss/leonardo/leonardo_body.glb</code> (<code>tools/milao/make_leonardo.py</code>: sem coroa, gorro, barba longa, túnica rosa; aparência pelo autorretrato de Turim, domínio público)</td>
+</tr>
+<tr>
+<td>"Workbench - Low Poly Medieval, CC0"</td>
+<td>Avramania — https://sketchfab.com/3d-models/workbench-low-poly-medieval-cc0-9e18d937e18240d8ac1eb98c43d54d9a</td>
+<td>CC0 1.0</td>
+<td>bancadas da oficina de Milão: <code>assets/models/props/milao/bancada.glb</code></td>
+</tr>
+<tr>
+<td>"Da Vinci's - Flying Machine"</td>
+<td>vanessalani — https://sketchfab.com/3d-models/da-vincis-flying-machine-ac60c0bc847e4929bf8aa9772ac49b1a</td>
+<td><strong>CC-BY 4.0</strong></td>
+<td>máquina voadora pendurada (e destruída no hangar) em Milão: <code>assets/models/props/milao/maquina_voadora.glb</code></td>
+</tr>
+<tr>
+<td>"Scroll"</td>
+<td>FlukierJupiter — https://sketchfab.com/3d-models/scroll-7450e494eb654e9b937bb52724220e77</td>
+<td><strong>CC-BY 4.0</strong></td>
+<td>pergaminhos da oficina de Milão (texturas reduzidas para 256 px): <code>assets/models/props/milao/pergaminho.glb</code></td>
+</tr>
+<tr>
+<td>"Bulky Knight"</td>
+<td>Arthur Krut (OptiCube) — https://sketchfab.com/3d-models/002a90cbf12941b792f9685546a7502c</td>
+<td><strong>CC-BY 4.0</strong></td>
+<td>corpo de Rostam, o chefe da Pérsia: <code>assets/models/boss/rostam/rostam_body.glb</code>. Modificado: só a armadura (o machado ficou de fora), espelhado (o punho fechado virou a mão direita, a do gorz), decimado de 26,9 mil para 12,4 mil triângulos, esqueleto novo no da Universal Animation Library 2 (pose T, pesos do manequim UAL2; <code>tools/retarget/bulky_to_ual2.py</code>), texturas reduzidas de 4096 para 1024 px em JPEG com metal/rugosidade empacotados, recolorido (bronze e ouro, pano vermelho persa, chifres de marfim) e metálico reduzido</td>
+</tr>
+<tr>
+<td>KayKit Dungeon Remastered (203 peças)</td>
+<td>Kay Lousberg, https://github.com/KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0</td>
+<td>CC0 1.0</td>
+<td><code>assets/models/dungeon/kaykit/</code> (cenário "masmorra")</td>
+</tr>
+<tr>
+<td>Modular Sci-Fi MegaKit (Standard)</td>
+<td>Quaternius, https://quaternius.itch.io/modular-sci-fi-megakit (espelho https://opengameart.org/content/modular-sci-fi-megakit)</td>
+<td>CC0 1.0</td>
+<td><code>assets/models/ship/scifi/</code> (casco da Nave do Tempo)</td>
+</tr>
+<tr>
+<td>"D.S.S. Harbinger battle cruiser"</td>
+<td>Comrade1280 — https://skfb.ly/YXLW (Sketchfab)</td>
+<td><strong>CC-BY 4.0</strong></td>
+<td>a Nave do Tempo vista por fora na abertura, <code>assets/models/ship/exterior/time_ship_exterior.glb</code>. Modificado: decimado de 73,4 mil para 39,6 mil triângulos, reorientado e reescalado (8 m), texturas reduzidas para 1024 px (AO 2048) em JPEG com metal/rugosidade empacotados, metálico reduzido e albedo clareado, luzes/janelas/motores emissivos, e o nome do casco trocado de "D.S.S. HARBINGER / MPP-1802CC" para "NAVE DO TEMPO / CRONOS / FDT-0001" (fonte Marcellus); scripts em <code>tools/ship_exterior/</code></td>
+</tr>
+<tr>
+<td>Universal Animation Library (Standard)</td>
+<td>Quaternius, https://quaternius.itch.io/universal-animation-library (espelho https://opengameart.org/node/174563)</td>
+<td>CC0 1.0</td>
+<td><code>assets/animations/ual/ual1.glb</code></td>
+</tr>
+<tr>
+<td>Universal Animation Library 2 (Standard)</td>
+<td>Quaternius, https://quaternius.itch.io/universal-animation-library-2 (espelho https://opengameart.org/content/universal-animation-library-2)</td>
+<td>CC0 1.0</td>
+<td><code>assets/animations/ual/ual2.glb</code>; o esqueleto dele é a base de todos os humanoides (tools/retarget/to_ual2_rig.py)</td>
+</tr>
+<tr>
+<td>Universal Base Characters (Standard)</td>
+<td>Quaternius, https://quaternius.itch.io/universal-base-characters (página https://quaternius.com/packs/universalbasecharacters.html)</td>
+<td>CC0 1.0</td>
+<td>corpo dos jogadores (<code>assets/models/avatar/avatar_male.glb</code> e <code>avatar_female.glb</code>): cabeça, olhos e sobrancelhas recortados do corpo "Superhero" e decimados; cabelos raspado, repartido, curto, longo, coque e barba (ajustados à cabeça do outro corpo); pele assada numa textura pequena neutra para tingir; <code>tools/avatar/build_avatar.py</code></td>
+</tr>
+<tr>
+<td>Modular Character Outfits - Fantasy (Standard)</td>
+<td>Quaternius, https://quaternius.itch.io/modular-character-outfits-fantasy</td>
+<td>CC0 1.0</td>
+<td>roupa "Ranger" dos jogadores (sem o capuz, só a gola; mãos e braços), decimada de ~26 mil para ~7 mil triângulos, no mesmo esqueleto (UAL2); texturas por classe <code>assets/models/avatar/outfit_*.jpg</code> (mago = Ranger tingido; <code>tools/avatar/make_outfits.py</code>)</td>
+</tr>
+<tr>
+<td>"Viking Sword (Game Model)"</td>
+<td>makivic — https://sketchfab.com/3d-models/viking-sword-game-model-a05d0bd73e9e4508b873ffd7b6a6238d (Sketchfab)</td>
+<td><strong>CC-BY 4.0</strong> (https://creativecommons.org/licenses/by/4.0/)</td>
+<td><code>assets/models/weapons/espada_viking.glb</code>: espada do jogador e dos inimigos de espada. Modificado: otimizado (malha/texturas), reorientado e reescalado</td>
+</tr>
+<tr>
+<td>"Pilum"</td>
+<td>Paul.OHare — https://sketchfab.com/3d-models/pilum-b700cb582841482abd7fb60b7df71bb3 (Sketchfab)</td>
+<td><strong>CC-BY 4.0</strong> (https://creativecommons.org/licenses/by/4.0/)</td>
+<td><code>assets/models/weapons/lanca_pilum.glb</code>: lança. Modificado: otimizado (malha/texturas), reorientado e reescalado</td>
+</tr>
+<tr>
+<td>"Viking shield"</td>
+<td>kozachoks — https://sketchfab.com/3d-models/viking-shield-bd46de8bbfd74b5cb821eb06ac668542 (Sketchfab)</td>
+<td><strong>CC-BY 4.0</strong> (https://creativecommons.org/licenses/by/4.0/)</td>
+<td><code>assets/models/weapons/escudo_viking.glb</code>: escudo. Modificado: otimizado (malha/texturas), reorientado e reescalado</td>
+</tr>
+<tr>
+<td>"Primal hunter"</td>
+<td>minghau — https://sketchfab.com/3d-models/primal-hunter-238fafedf6a74b7fa080ce611711c341 (Sketchfab)</td>
+<td><strong>CC-BY 4.0</strong> (https://creativecommons.org/licenses/by/4.0/)</td>
+<td><code>assets/models/weapons/arco.glb</code>: arco (só o arco; corda do modelo removida, o jogo desenha a corda). Modificado: otimizado (malha/texturas), reorientado e reescalado</td>
+</tr>
+<tr>
+<td>"CC0 - Wooden Arrow"</td>
+<td>plaggy — https://sketchfab.com/3d-models/cc0-wooden-arrow-cab3cc4e956e469db3b9e431110fbbcd (Sketchfab)</td>
+<td><strong>CC-BY 4.0</strong> (https://creativecommons.org/licenses/by/4.0/)</td>
+<td><code>assets/models/weapons/flecha.glb</code>: flecha (o nome diz CC0, a página diz CC BY 4.0: creditado). Modificado: otimizado (malha/texturas), reorientado e reescalado</td>
+</tr>
+<tr>
+<td>"Accurate Plasma Pistol"</td>
+<td>Vpusta — https://sketchfab.com/3d-models/accurate-plasma-pistol-db7ad549cd3c498eb6a21385ff8e2094 (Sketchfab)</td>
+<td><strong>CC-BY 4.0</strong> (https://creativecommons.org/licenses/by/4.0/)</td>
+<td><code>assets/models/weapons/pistola_plasma.glb</code>: pistolas laser. Modificado: otimizado (malha/texturas), reorientado e reescalado</td>
+</tr>
+<tr>
+<td>"Persian Shamshir"</td>
+<td>MaroonTune — https://sketchfab.com/3d-models/persian-shamshir-db1cdddeb1034cbf864f7c73b87264bc (Sketchfab)</td>
+<td><strong>CC-BY 4.0</strong> (https://creativecommons.org/licenses/by/4.0/)</td>
+<td><code>assets/models/weapons/shamshir.glb</code>: shamshir (Pérsia). Modificado: otimizado (malha/texturas), reorientado e reescalado</td>
+</tr>
+<tr>
+<td>"Ancient Roman gladius sword"</td>
+<td>samize — https://sketchfab.com/3d-models/ancient-roman-gladius-sword-7261d334924f4a9b835ef4b15c1e16d0 (Sketchfab)</td>
+<td><strong>CC-BY 4.0</strong> (https://creativecommons.org/licenses/by/4.0/)</td>
+<td><code>assets/models/weapons/gladius.glb</code>: gládio (Roma). Modificado: otimizado (malha/texturas), reorientado e reescalado</td>
+</tr>
+<tr>
+<td>"Roman Scutum Shield"</td>
+<td>DennisVanMalderen — https://sketchfab.com/3d-models/roman-scutum-shield-d67564c8980b4e84acde74144da941ea (Sketchfab)</td>
+<td><strong>CC-BY 4.0</strong> (https://creativecommons.org/licenses/by/4.0/)</td>
+<td><code>assets/models/weapons/scutum.glb</code>: scutum (Roma). Modificado: otimizado (malha/texturas), reorientado e reescalado</td>
+</tr>
+<tr>
+<td>"Medieval Mace"</td>
+<td>KamaModeling — https://sketchfab.com/3d-models/medieval-mace-83217215a0c541b2956a8e87a4ae62fe (Sketchfab)</td>
+<td><strong>CC-BY 4.0</strong> (https://creativecommons.org/licenses/by/4.0/)</td>
+<td><code>assets/models/weapons/maca.glb</code>: maça. Modificado: otimizado (malha/texturas), reorientado e reescalado</td>
+</tr>
+<tr>
+<td>"Rapier Sword"</td>
+<td>FedeOde — https://sketchfab.com/3d-models/rapier-sword-98a14cb81f974fb89775b5cfe269bd28 (Sketchfab)</td>
+<td><strong>CC-BY 4.0</strong> (https://creativecommons.org/licenses/by/4.0/)</td>
+<td><code>assets/models/weapons/rapieira.glb</code>: rapieira (Milão). Modificado: otimizado (malha/texturas), reorientado e reescalado</td>
+</tr>
+<tr>
+<td>"Flintlock pistol"</td>
+<td>Cyril43 — https://sketchfab.com/3d-models/flintlock-pistol-d2b82ab60b6a4960bf859953bb933595 (Sketchfab)</td>
+<td><strong>CC-BY 4.0</strong> (https://creativecommons.org/licenses/by/4.0/)</td>
+<td><code>assets/models/weapons/pistola_pederneira.glb</code>: pistola de pederneira (Milão). Modificado: otimizado (malha/texturas), reorientado e reescalado</td>
+</tr>
+<tr>
+<td>"Medieval War Hammer"</td>
+<td>parelaxel — https://sketchfab.com/3d-models/medieval-war-hammer-665734b41cce4a49abeb757c3bda7705 (Sketchfab)</td>
+<td><strong>CC-BY 4.0</strong> (https://creativecommons.org/licenses/by/4.0/)</td>
+<td><code>assets/models/weapons/martelo_guerra.glb</code>: martelo de guerra (Valáquia). Modificado: otimizado (malha/texturas), reorientado e reescalado</td>
+</tr>
+<tr>
+<td>"DRAGON SHIELD"</td>
+<td>Adriancgmask — https://sketchfab.com/3d-models/dragon-shield-c3c301cfbf4a48589db6793d77b2c646 (Sketchfab)</td>
+<td><strong>CC-BY 4.0</strong> (https://creativecommons.org/licenses/by/4.0/)</td>
+<td><code>assets/models/weapons/escudo_dragao.glb</code>: escudo do dragão (Valáquia). Modificado: otimizado (malha/texturas), reorientado e reescalado</td>
+</tr>
+<tr>
+<td>"Decorative Battle Axe"</td>
+<td>ArmsMuseum — https://sketchfab.com/3d-models/decorative-battle-axe-97575b982f5944baa0c9062d8107a983 (Sketchfab)</td>
+<td>CC0 1.0 (crédito por cortesia)</td>
+<td><code>assets/models/weapons/tabar_persa.glb</code>: tabarzin (Pérsia). Modificado: otimizado (malha/texturas), reorientado e reescalado</td>
+</tr>
+<tr>
+<td>Armas da 0.7 (Sword, Shield Round, Spear, Arrow e Wooden Bow de Quaternius; Scifi Gun de MiniPoly)</td>
+<td>Poly Pizza</td>
+<td>CC0 1.0</td>
+<td>fora do jogo desde a 0.8; guardadas em <code>assets/library/weapons/antigas_0.7/</code></td>
+</tr>
+<tr>
+<td>"Anduril" (machado de osso)</td>
+<td>NielsTombeur — https://sketchfab.com/3d-models/anduril-49880f8c248645c089ecc2b60d54b954</td>
+<td><strong>CC-BY 4.0</strong></td>
+<td><code>assets/models/weapons/axe.glb</code> (reduzido de 98 mil para 4,2 mil triângulos, reorientado, cores nos materiais)</td>
+</tr>
+<tr>
+<td>Mãos (modelos e poses de dedos)</td>
+<td>Godot XR Tools 4.5.2 — modelos por DigitalN8m4r3 (https://github.com/GodotVR/godot-xr-tools)</td>
+<td>CC0 1.0 (<code>assets/hands/License.md</code>)</td>
+<td><code>assets/hands/</code> — só os dados; o script da mão é nosso (<code>scripts/player/xr_hand.gd</code>), luva recolorida para couro</td>
+</tr>
+<tr>
+<td>Cenário persa (muralhas, portão, colunas, arco, pedestal, fogueira, tocha, tenda, estandartes, palmeira, rochas, estátua de cavalo)</td>
+<td>Poly Pizza — Quaternius e Kenney</td>
+<td>CC0 1.0</td>
+<td><code>assets/models/props/persia/</code> (lista completa em <code>assets/library/CATALOGO.md</code>)</td>
+</tr>
+<tr>
+<td>"cypress tree"</td>
+<td>Andrea Zvinakis — https://poly.pizza/m/4PHDVmmfFj9</td>
+<td><strong>CC-BY 3.0</strong></td>
+<td><code>assets/models/props/persia/cipreste.glb</code></td>
+</tr>
+<tr>
+<td>"Oriental rug"</td>
+<td>Poly by Google — https://poly.pizza/m/5sYEzPA8SLd</td>
+<td><strong>CC-BY 3.0</strong></td>
+<td><code>assets/models/props/persia/tapete_oriental.glb</code></td>
+</tr>
+<tr>
+<td>"Amphora"</td>
+<td>Bruno Oliveira — https://poly.pizza/m/7Q8MkXjALbL</td>
+<td><strong>CC-BY 3.0</strong></td>
+<td><code>assets/models/props/persia/anfora.glb</code></td>
+</tr>
+<tr>
+<td>"Palace"</td>
+<td>jeremy — https://poly.pizza/m/1d1nN3qb1E7</td>
+<td><strong>CC-BY 3.0</strong></td>
+<td><code>assets/models/props/persia/palacio_cupula.glb</code></td>
+</tr>
+<tr>
+<td>"Mace"</td>
+<td>joney_lol — https://poly.pizza/m/z59Foset56</td>
+<td><strong>CC-BY 3.0</strong></td>
+<td>cabo do gorz de Rostam, <code>assets/models/weapons/gorz.glb</code> (montado por <code>tools/boss/make_gorz.py</code>; original em <code>assets/library/boss_rostam/gorz_base_maca.glb</code>)</td>
+</tr>
+<tr>
+<td>Bull</td>
+<td>Quaternius — https://poly.pizza/m/a8PIIYwF7r</td>
+<td>CC0 1.0</td>
+<td>cabeça de touro do gorz de Rostam (<code>assets/models/weapons/gorz.glb</code>)</td>
+</tr>
+<tr>
+<td>Horse</td>
+<td>Quaternius — https://poly.pizza/m/qvTrSG9pZF</td>
+<td>CC0 1.0</td>
+<td>Rakhsh, o cavalo de areia de Rostam: <code>assets/models/boss/rostam/rakhsh.glb</code></td>
+</tr>
+<tr>
+<td>King</td>
+<td>Quaternius — https://poly.pizza/m/I1gTjmuK2m</td>
+<td>CC0 1.0</td>
+<td>corpo de Vlad III, o chefe da Valáquia: <code>assets/models/boss/vlad/vlad_body.glb</code> (montado por <code>tools/boss/make_vlad.py</code>): sem a coroa e a barba, recolorido (túnica carmesim, debrum dourado, armadura escurecida, cabelo escuro) e com chapéu de nobre, pérolas, broche, pluma e bigode feitos no Blender (pesados no osso Head); também o Guarda do Dragão (<code>EnemyDefs</code> "guarda_dragao", recolorido)</td>
+</tr>
+<tr>
+<td>"Pilum" (de novo)</td>
+<td>Paul.OHare — https://sketchfab.com/3d-models/pilum-b700cb582841482abd7fb60b7df71bb3</td>
+<td><strong>CC-BY 4.0</strong></td>
+<td>base da Lança do Dragão (arma de Vlad e prêmio da 1ª vitória): <code>assets/models/weapons/lanca_dragao.glb</code> (<code>tools/boss/make_lanca_dragao.py</code>). Modificado: asas e anéis de ouro, fitas carmesim e pomo com cravos</td>
+</tr>
+<tr>
+<td>Snake</td>
+<td>Quaternius — https://poly.pizza/m/x9x0viZs8V</td>
+<td>CC0 1.0</td>
+<td>cobra das Provas (Pérsia, sala 3): <code>assets/models/enemies/creatures/cobra.glb</code></td>
+</tr>
+<tr>
+<td>Wolf</td>
+<td>Quaternius — https://poly.pizza/m/XU7oNeKShV</td>
+<td>CC0 1.0</td>
+<td>lobo das Provas (Pérsia, sala 3): <code>assets/models/enemies/creatures/lobo.glb</code></td>
+</tr>
+<tr>
+<td>Blue Demon</td>
+<td>Quaternius — https://poly.pizza/m/S7jYW6Amye</td>
+<td>CC0 1.0</td>
+<td>Div menor (Pérsia, sala 4): <code>assets/models/enemies/creatures/demonio_azul.glb</code></td>
+</tr>
+<tr>
+<td>Giant</td>
+<td>Quaternius — https://poly.pizza/m/BldaiPtyJa</td>
+<td>CC0 1.0</td>
+<td>Div Branco, mini-chefe da Pérsia (recolorido de branco no jogo): <code>assets/models/enemies/creatures/gigante.glb</code></td>
+</tr>
+<tr>
+<td>Witch</td>
+<td>"Witch" by Quaternius, https://poly.pizza/m/QBEOV9ZUT8</td>
+<td><strong>CC-BY 3.0</strong> (https://creativecommons.org/licenses/by/3.0)</td>
+<td>a feiticeira das Provas (Pérsia, sala 3): <code>assets/models/enemies/creatures/bruxa.glb</code></td>
+</tr>
+<tr>
+<td>"Potion" (garrafa redonda)</td>
+<td>Don Carson — https://poly.pizza/m/dOREefQfDQu</td>
+<td><strong>CC-BY 3.0</strong></td>
+<td>poção de mana, <code>assets/models/items/potions/potion_round.glb</code> (líquido recolorido no jogo)</td>
+</tr>
+<tr>
+<td>"Health Potion"</td>
+<td>Garrett LeFever — https://poly.pizza/m/5DvOJDIgDYu</td>
+<td><strong>CC-BY 3.0</strong></td>
+<td>poção de vida, <code>assets/models/items/potions/potion_health.glb</code></td>
+</tr>
+<tr>
+<td>"Potion" (frasco)</td>
+<td>Jakob Hippe — https://poly.pizza/m/2bzNXmBoUqD</td>
+<td><strong>CC-BY 3.0</strong></td>
+<td>poção de força, <code>assets/models/items/potions/potion_flask.glb</code> (líquido recolorido no jogo)</td>
+</tr>
+<tr>
+<td>"Magical potion mk2"</td>
+<td>Dmitry — https://skfb.ly/67o86 (Sketchfab)</td>
+<td><strong>CC-BY 4.0</strong></td>
+<td>Elixir do tempo, <code>assets/models/items/potions/potion_magic.glb</code> (reduzido de 745 mil para 5 mil triângulos, texturas em 1024)</td>
+</tr>
+<tr>
+<td>Potion (alta)</td>
+<td>Quaternius — https://poly.pizza/m/7qbuf1TS8C</td>
+<td>CC0 1.0</td>
+<td><code>assets/models/items/potions/potion_tall.glb</code> (reserva, ainda sem uso)</td>
+</tr>
+<tr>
+<td>Vosk (biblioteca Python)</td>
+<td>https://alphacephei.com/vosk</td>
+<td>Apache 2.0</td>
+<td>Reconhecimento de voz offline das magias</td>
+</tr>
+<tr>
+<td>vosk-model-small-en-us-0.15</td>
+<td>https://alphacephei.com/vosk/models</td>
+<td>Apache 2.0 (conferir na página dos modelos antes de distribuir)</td>
+<td>Modelo de voz em inglês</td>
+</tr>
+<tr>
+<td>Godot OpenXR Vendors 5.1.0</td>
+<td>https://github.com/GodotVR/godot_openxr_vendors</td>
+<td>MIT (loader Meta: ver <code>addons/godotopenxrvendors/meta/LICENSE-*</code>)</td>
+<td>Build OpenXR no Quest</td>
+</tr>
+</tbody>
+</table>
+<p>Sons gerados com <strong>ElevenLabs</strong> (Sound Effects e Music API, conta paga do usuário; conferir nos termos do ElevenLabs o uso comercial antes de publicar): aparo, bloqueios, golpes, impactos, armas, magias, inimigos, passos, ambientes de caverna/masmorra e as músicas <code>music_explore</code> e <code>music_boss</code> (prompts em <code>tools/sfxgen/</code>, originais em <code>assets/library/sfx/elevenlabs/</code>). Demais sons: arquivos CC0 em <code>assets/audio/</code> (origem, autor e licença de cada um em <code>assets/library/sfx/SONS.md</code>, principalmente OpenGameArt: Kenney, "150 Combat Sound Effects", gravações medievais); sons sintetizados em <code>scripts/fx/sfx.gd</code> como reserva. Modelos 3D: tabela acima (Poly Pizza; orientação e ponto de pegada ajustados no Blender).</p>
+<p>Narração da abertura gerada com <strong>ElevenLabs</strong> (Text-to-Speech API, voz pronta "George", modelo <code>eleven_multilingual_v2</code>, conta paga do usuário; conferir nos termos do ElevenLabs o uso comercial antes de publicar): <code>assets/audio/narration/pt_BR/</code> e <code>assets/audio/narration/en/</code> (originais mp3 em <code>assets/library/narration/</code>, script <code>tools/sfxgen/eleven_tts.py</code>, falas em <code>scripts/intro/intro_lines.gd</code>).</p>
+<p>Falas de Rostam (chefe da Pérsia) geradas com <strong>ElevenLabs</strong> (Text-to-Speech API, voz pronta "Brian", modelo <code>eleven_multilingual_v2</code>, conta paga do usuário; conferir nos termos do ElevenLabs o uso comercial antes de publicar): <code>assets/audio/boss/rostam/pt_BR/</code> e <code>assets/audio/boss/rostam/en/</code> (originais mp3 em <code>assets/library/boss/rostam/</code>, <code>tools/sfxgen/eleven_tts.py --set rostam</code>, falas em <code>scripts/ai/rostam_lines.gd</code>). Sons <code>gallop</code>, <code>lasso</code> e <code>sand_rush</code> também do ElevenLabs (Sound Effects API, <code>tools/sfxgen/eleven_sfx.py</code>).</p>
+<p>Falas de Vlad III (chefe da Valáquia, 0.8.1) geradas com <strong>ElevenLabs</strong> (Text-to-Speech API, voz pronta "Daniel", modelo <code>eleven_multilingual_v2</code>, 12 falas, 533 caracteres; conta paga do usuário; conferir nos termos do ElevenLabs o uso comercial antes de publicar): <code>assets/audio/boss/vlad/pt_BR/</code> e <code>assets/audio/boss/vlad/en/</code> (originais mp3 em <code>assets/library/boss/vlad/</code>, <code>tools/sfxgen/eleven_tts.py --set vlad</code>, falas em <code>scripts/ai/vlad_lines.gd</code>).</p>
+<p>Falas da Pérsia além de Rostam (0.8.1) geradas com <strong>ElevenLabs</strong> (Text-to-Speech API, modelo <code>eleven_multilingual_v2</code>, vozes prontas "Bill" (Chronos pelo rádio), "Callum" (Div Branco, abaixado) e "Lily" (a feiticeira); conta paga do usuário; conferir nos termos do ElevenLabs o uso comercial antes de publicar): <code>assets/audio/persia/pt_BR/</code> e <code>assets/audio/persia/en/</code> (originais mp3 em <code>assets/library/persia/</code>, <code>tools/sfxgen/persia_tts.py</code>, falas em <code>scripts/levels/persia_lines.gd</code>).</p>
+<p>Sons das magias 0.8.1 gerados com <strong>ElevenLabs</strong> (Sound Effects API, 11 sons, 1 geração cada; conta paga do usuário; conferir nos termos do ElevenLabs o uso comercial antes de publicar): <code>ice_shatter</code>, <code>ice_form</code>, <code>thunder</code>, <code>meteor_fall</code>, <code>quake</code>, <code>heal_glow</code>, <code>time_warp</code>, <code>vanish</code>, <code>phoenix</code>, <code>drain_pull</code>, <code>force_wave</code> em <code>assets/audio/</code> (originais mp3 em <code>assets/library/sfx/elevenlabs/</code>, prompts em <code>tools/sfxgen/eleven_sfx.py</code>); <code>time_rewind</code> é o <code>time_warp</code> invertido (ffmpeg). Efeitos visuais das magias feitos em código (<code>scripts/magic/spell_fx.gd</code>), sem texturas de terceiros.</p>
+<p>Milão (0.8.1): falas de Leonardo e do Colosso geradas com <strong>ElevenLabs</strong> (Text-to-Speech API, modelo <code>eleven_multilingual_v2</code>, vozes prontas "Bill" (Leonardo) e "Clyde" (o Colosso, com efeito de máquina aplicado depois por <code>tools/milao/robot_voice.sh</code>), 14 falas, 785 caracteres; conta paga do usuário; conferir nos termos do ElevenLabs o uso comercial antes de publicar): <code>assets/audio/boss/leonardo/</code> e <code>assets/audio/boss/colosso/</code> (originais mp3 em <code>assets/library/boss/leonardo/</code> e <code>assets/library/boss/colosso/</code>, falas em <code>scripts/ai/leonardo_lines.gd</code> e <code>scripts/ai/colosso_lines.gd</code>). Música de exploração <code>music_milao</code> (Music API) e os sons <code>hydraulic_step</code>, <code>servo</code>, <code>missile</code>, <code>laser_sweep</code>, <code>gears_loop</code> e <code>cockpit_eject</code> (Sound Effects API, 1 geração cada; prompts em <code>tools/sfxgen/</code>). Texturas da oficina (pergaminhos com estudos à maneira dos cadernos de Leonardo, cotto, reboco com afresco, pedra) desenhadas por <code>tools/milao/make_textures.py</code> (originais). Peças do Modular Sci-Fi MegaKit devolvidas de <code>assets/library/nao_usados/</code> (lista em <code>assets/library/nao_usados/DEVOLVIDOS.txt</code>).</p></main></body></html>
