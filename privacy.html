@@ -20,10 +20,11 @@ th{background:#141830} code{color:var(--rift)} .back{display:inline-block;margin
 <li><b>Microphone audio.</b> The game asks for microphone permission for two features:
 <ul><li><b>Spoken spells:</b> while you hold your amulet or grimoire, the audio is streamed to our speech server, which only matches it against the list of spell words. The audio is processed in memory and is <b>not stored</b>.</li>
 <li><b>Voice chat:</b> your voice is sent through our relay to the other players in your room, in real time. It is <b>not recorded</b>.</li></ul></li>
+<li><b>Performance metrics (optional, off by default).</b> If you turn on "Enviar métricas de desempenho" in the game menu, the game sends frame-rate numbers every 30 seconds: frames per second, frame times, draw calls, which room you are in, quality setting, headset model and game version, tied to your anonymous player ID. We use them only to make the game run smoothly and delete them regularly. Turn the option off to stop.</li>
 <li><b>On your headset only:</b> your characters, inventory and settings are saved locally on the device.</li>
 </ul>
 <h2>What we don't do</h2>
-<ul><li>No advertising, no analytics or tracking SDKs, no sale or sharing of data with third parties.</li>
+<ul><li>No advertising, no third-party analytics or tracking SDKs (only the optional performance metrics above), no sale or sharing of data with third parties.</li>
 <li>We don't ask for your real name, email, location or payment data.</li></ul>
 <h2>Where it runs</h2>
 <p>The login/room server runs on Google Cloud (App Engine) with a PostgreSQL database hosted by Neon; the game relay and speech server run on Google Cloud Run. Content updates are downloaded from GitHub Releases.</p>
